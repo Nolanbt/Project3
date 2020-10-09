@@ -11,11 +11,10 @@ const useStyles = makeStyles({
         background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
         border: 0,
         borderRadius: 3,
-        // boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        boxShadow: '0px 0px 1px 2px purple',
         color: 'white',
         height: 48,
         padding: '0 30px',
-        marginLeft: 5
     },
     other: {
         background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
@@ -27,12 +26,13 @@ const useStyles = makeStyles({
         padding: '0 30px',
         textDecoration: "none"
     },
+    group: {
+        boxShadow: '0px 0px 5px 2px purple',
+    }
 });
 
-function Login() {
+function Login(props) {
     const classes = useStyles();
-
-
 
     return (
         <Grid container spacing={2} alignItems="center" justify="center" direction="column">
@@ -47,9 +47,9 @@ function Login() {
                 </form>
             </Grid>
             <Grid item>
-                <ButtonGroup >
+                <ButtonGroup className={classes.group}>
                     <Button className={classes.root}>Create Account</Button>
-                    <Button className={classes.root}>Login</Button>
+                    <Button onClick={() => props.loginWithRedirect()} className={classes.root} style={{marginLeft: 5}}>Login</Button>
                 </ButtonGroup>
             </Grid>
             <Grid item>
@@ -58,6 +58,7 @@ function Login() {
                 </Link>
             </Grid>
         </Grid>
+        
     )
 }
 

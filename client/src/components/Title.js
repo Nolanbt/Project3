@@ -8,11 +8,11 @@ const styles = {
     textAlign: "center"
 }
 
-function Title(){
+function Title(props){
     return(
         <Grid container spacing={2} alignItems="center" justify="center">
             <Grid item>
-                <h1 style={styles}>CODE-E-MON</h1>
+                <h1 style={styles}>{props.text}</h1>
             </Grid>
         </Grid>
     )
