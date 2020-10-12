@@ -8,7 +8,8 @@ const styles={
     margin: "15px 200px",
     background: "radial-gradient(white, green 200%)",
     border: "2px solid black",
-    borderRadius: "5px"
+    borderRadius: "5px",
+    objectFit: "contain"
 }
 
 function Arena () {

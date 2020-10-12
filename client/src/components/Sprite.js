@@ -28,12 +28,13 @@ function Sprite(props) {
                     <img style={styles.sprite} src={props.image} alt="Placeholder"></img>
                 </Grid>
                 <Grid item>
+                    <span style={{textAlign: "center"}}>{props.health}/100</span>
                     <LinearProgress variant="determinate" color="secondary" value={props.health} />
                 </Grid>
                 <Grid item>
                     <ButtonGroup variant="text" color="primary" aria-label="contained primary button group">
-                        <Button onClick={()=> props.handleMove("https://media0.giphy.com/media/eNAsjO55tPbgaor7ma/giphy.gif ")} >React</Button>
-                        <Button onClick={()=> props.handleMove("https://media4.giphy.com/media/LUSWuXomJUaXpsFoQK/source.gif ")}>Mongo</Button>
+                        <Button onClick={()=> props.handleMove("https://media0.giphy.com/media/eNAsjO55tPbgaor7ma/giphy.gif")} >React</Button>
+                        <Button onClick={()=> props.handleMove("https://media4.giphy.com/media/LUSWuXomJUaXpsFoQK/source.gif")}>Mongo</Button>
                     </ButtonGroup>
                     <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
                         <Button onClick={()=> props.handleMove("https://images.squarespace-cdn.com/content/v1/56e76a1101dbaef110916eb0/1544468004598-E847BRBNXHJXLY67OI5E/ke17ZwdGBToddI8pDm48kHgGgK_DdG2qa3eqol_lUsRZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpzrTYq94zMtEEwt_jNlk5uS8P-LPd3CcrODytEU6YMy97EpPkXqxtlnib67YzsH4Yk/Fire+Ball.gif")}>jQuery</Button>
