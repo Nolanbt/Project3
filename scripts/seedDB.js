@@ -9,13 +9,15 @@ mongoose.connect(
 
 const spriteSeed = [
     {
+        email: "sprite@codeemon.com",
         name: "Boss",
-        health: 500,
+        health: 100,
         moves: ["Move 1", "Move 2", "Move 3", "Move 4"]
     },
     {
+        email: "sprite@codeemon.com",
         name: "Guest",
-        health: 500,
+        health: 100,
         moves: ["Move 1", "Move 2", "Move 3", "Move 4"]
     }
 ];

@@ -7,4 +7,7 @@ router.route("/sprites/all")
 router.route("/sprites/:id")
     .get(spriteController.findOne)
 
+router.route("/sprites/:email")
+    .get(spriteController.findByEmail)
+
 module.exports = router;

@@ -47,18 +47,15 @@ function Login(props) {
                 </form>
             </Grid>
             <Grid item>
-                <ButtonGroup className={classes.group}>
-                    <Button className={classes.root}>Create Account</Button>
-                    <Button onClick={() => props.loginWithRedirect()} className={classes.root} style={{marginLeft: 5}}>Login</Button>
-                </ButtonGroup>
+                <Button onClick={() => props.loginWithRedirect()} className={classes.root} style={{ marginLeft: 5 }}>Login or Create Account</Button>
             </Grid>
             <Grid item>
-                <Link to="/selection" style={{textDecoration: "none"}}>
+                <Link to="/selection" style={{ textDecoration: "none" }}>
                     <Button className={classes.other}>Continue as Guest</Button>
                 </Link>
             </Grid>
         </Grid>
-        
+
     )
 }
 

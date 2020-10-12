@@ -1,4 +1,5 @@
 const db = require("../models");
+const { find } = require("../models/sprites");
 
 module.exports = {
     findAll: function(req,res) {
@@ -12,5 +13,10 @@ module.exports = {
             .findById(req.params.id)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).end());
+    },
+    findByEmail: function(req,res) {
+        find({email: req.params.email})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).end());
     }
 }

@@ -6,6 +6,7 @@ import { Link, useHistory } from "react-router-dom"
 
 const styles = {
     background: "radial-gradient(#21CBF3, black 75%)",
+    // background: "radial-gradient(black 40%, #21CBF3)",
     backgroundSize: "cover",
     padding: 225,
 }
@@ -16,17 +17,19 @@ function Home() {
     console.log(isAuthenticated);
 
     let history = useHistory();
+    let username = "";
 
     useEffect(()=>{
         if(isAuthenticated){
             history.push("/selection")
+            username = user.name 
         }
     },[isAuthenticated])
 
     return (
         <div style={styles}>
             <Title text={"CODE-E-MON"}/>
-            <Login loginWithRedirect={loginWithRedirect}/>
+            <Login username={username} loginWithRedirect={loginWithRedirect}/>
         </div>
     )
 }
