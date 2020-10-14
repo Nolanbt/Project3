@@ -9,12 +9,15 @@ const spriteSchema = new Schema({
         type: String,
         required: true
     },
+    image: {
+        type: String
+    },
     health: {
         type: Number,
         default: 500
     },
     moves: {
-        type: [String],
+        type: [{Object}],
     }
 })
 

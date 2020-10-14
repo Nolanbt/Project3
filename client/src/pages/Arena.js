@@ -3,6 +3,7 @@ import Sprite from "../components/Sprite"
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Move from "../components/Move"
+import API from "../utils/API"
 
 const styles={
     margin: "15px 200px",
@@ -24,7 +25,7 @@ function Arena () {
             image: "https://1.bp.blogspot.com/-Dz1WMgUXPSM/VUpYrBNDcNI/AAAAAAAACdY/R9JLNYs8fHo/s1600/flame_lancer_entity_000_hit.gif"
         })
         setPlayer({
-            name: "Player Name",
+            name: "Debugger",
             health: 100,
             image: "https://opengameart.org/sites/default/files/enemy%20trooper.gif"
         })
@@ -42,6 +43,7 @@ function Arena () {
 
     // https://opengameart.org/sites/default/files/enemy%20trooper.gif
     // https://1.bp.blogspot.com/-Dz1WMgUXPSM/VUpYrBNDcNI/AAAAAAAACdY/R9JLNYs8fHo/s1600/flame_lancer_entity_000_hit.gif
+    // https://media1.tenor.com/images/0076d86c8cbc6c097fcd65f1781bf4a6/tenor.gif?itemid=11262315
 
     return(
         <div style={styles}>

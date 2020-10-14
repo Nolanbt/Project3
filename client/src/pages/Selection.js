@@ -1,10 +1,11 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom"
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import { useAuth0 } from "@auth0/auth0-react";
 import SpriteCard from "../components/SpriteCard";
+import API from "../utils/API";
 
 const useStyles = makeStyles({
     root: {
@@ -45,32 +46,38 @@ const styles= {
 function Selection() {
     const classes = useStyles();
     const { logout, user, isAuthenticated } = useAuth0();
+    const [sprites, setSprites] = useState([]);
 
     useEffect(()=>{
-        if(isAuthenticated){
-            // Api call to find users & default sprites
-        }
-        else{
-            // Api call to find default sprites
-        }
-    },[])
+        API.getSprites()
+        .then(({data})=> {
+            setSprites(data.map(obj => ({
+                name: obj.name,
+                image: obj.image
+            })))
+        })
+        .catch(err =>console.log(err))
 
+        // if(isAuthenticated){
+        //     Api call to find users & default sprites
+        // }
+        // else{
+        //     Api call to find default sprites
+        // }
+    },[])
+    
     return (
         <div style={styles.body}>
             <h1 style={styles.header}>Select your Sprite</h1>
             <Grid container spacing={3} alignItems="center" justify="center" direction="row">
+                {sprites.map(obj => (
                 <Grid item>
+                    <SpriteCard name={obj.name} image={obj.image}/>
+                </Grid>
+                ))}
+                {/* <Grid item>
                     <SpriteCard name="Hero Sprite" image={"https://opengameart.org/sites/default/files/enemy%20trooper.gif"}/>
-                </Grid>
-                <Grid item>
-                    <SpriteCard name="Sprite Number 2" image={"https://opengameart.org/sites/default/files/enemy%20trooper.gif"}/>
-                </Grid>
-                <Grid item>
-                    <SpriteCard name="Sprite Number 3" image={"https://opengameart.org/sites/default/files/enemy%20trooper.gif"}/>
-                </Grid>
-                <Grid item>
-                    <SpriteCard name="Sprite Number 4" image={"https://opengameart.org/sites/default/files/enemy%20trooper.gif"}/>
-                </Grid>
+                </Grid> */}
             </Grid>
             <Grid container spacing={2} alignItems="center" justify="flex-end" direction="column">
                 {isAuthenticated ? 
