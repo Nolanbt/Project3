@@ -13,8 +13,6 @@ const styles = {
 
 function Home() {
     const { loginWithRedirect, user, isAuthenticated } = useAuth0();
-    console.log(user);
-    console.log(isAuthenticated);
 
     let history = useHistory();
     let username = "";

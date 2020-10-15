@@ -49,35 +49,52 @@ function Selection() {
     const [sprites, setSprites] = useState([]);
 
     useEffect(()=>{
-        API.getSprites()
-        .then(({data})=> {
+        if(isAuthenticated){
+            API.getSprites()
+            .then(({data})=> {
             setSprites(data.map(obj => ({
                 name: obj.name,
-                image: obj.image
+                image: obj.image,
+                id: obj._id
             })))
         })
         .catch(err =>console.log(err))
-
-        // if(isAuthenticated){
-        //     Api call to find users & default sprites
-        // }
-        // else{
-        //     Api call to find default sprites
-        // }
+        }
+        else{
+            API.getSprites()
+            .then(({data})=> {
+            console.log(data)
+            setSprites(data.map(obj => ({
+                name: obj.name,
+                image: obj.image,
+                id: obj._id
+            })))
+        })
+        .catch(err =>console.log(err))
+        }
     },[])
+
+    const handleSelect = (sprite) => {
+        console.log(sprite)
+        let selectedSprite = {
+            id: sprite.id,
+            name: sprite.name,
+            image: sprite.image
+        }
+        API.selectSprite(selectedSprite)
+        .then((res)=> alert(`You selected ${sprite.name} as your fighter.`))
+        .catch(err =>console.log(err))
+    }
     
     return (
         <div style={styles.body}>
             <h1 style={styles.header}>Select your Sprite</h1>
             <Grid container spacing={3} alignItems="center" justify="center" direction="row">
-                {sprites.map(obj => (
+                {sprites.map((obj, index) => (
                 <Grid item>
-                    <SpriteCard name={obj.name} image={obj.image}/>
+                    <SpriteCard key={obj.id} name={obj.name} image={obj.image} id={obj.id} handleSelect={handleSelect}/>
                 </Grid>
                 ))}
-                {/* <Grid item>
-                    <SpriteCard name="Hero Sprite" image={"https://opengameart.org/sites/default/files/enemy%20trooper.gif"}/>
-                </Grid> */}
             </Grid>
             <Grid container spacing={2} alignItems="center" justify="flex-end" direction="column">
                 {isAuthenticated ? 

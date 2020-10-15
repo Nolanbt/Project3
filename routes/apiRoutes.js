@@ -9,5 +9,12 @@ router.route("/sprites/:id")
 
 router.route("/sprites/:email")
     .get(spriteController.findByEmail)
+    
+router.route("/sprites/battle")
+    .get(spriteController.findOne)
+
+router.route("/sprites/add")
+    .post(spriteController.selectSprite)
+
 
 module.exports = router;

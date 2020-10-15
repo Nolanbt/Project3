@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import Sprite from "../components/Sprite"
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Move from "../components/Move"
 import API from "../utils/API"
@@ -19,17 +18,29 @@ function Arena () {
     const [enemy, setEnemy] = useState({})
 
     useEffect( () => {
-        setEnemy({
-            name: "Syntax Error",
-            health: 100,
-            image: "https://1.bp.blogspot.com/-Dz1WMgUXPSM/VUpYrBNDcNI/AAAAAAAACdY/R9JLNYs8fHo/s1600/flame_lancer_entity_000_hit.gif"
+        API.getFighters()
+        .then(({data})=> {
+            console.log(data)
+            setPlayer({
+                name: data[0].name,
+                image: data[0].image,
+                health: data[0].health
+            })
         })
-        setPlayer({
-            name: "Debugger",
-            health: 100,
-            image: "https://opengameart.org/sites/default/files/enemy%20trooper.gif"
-        })
+        .catch(err =>console.log(err))
     }, [])
+
+    useEffect(()=> {
+        API.getSprites()
+        .then(({data})=> {
+            let rng = Math.floor(Math.random() * Math.floor(4))
+            setEnemy({
+                name: data[rng].name,
+                image: data[rng].image,
+                health: data[rng].health
+            })
+        })
+    },[player])
 
     const handleMove = (attack) => {
         let hp = enemy.health
@@ -40,10 +51,6 @@ function Arena () {
             return;
         }, 1500)
     }
-
-    // https://opengameart.org/sites/default/files/enemy%20trooper.gif
-    // https://1.bp.blogspot.com/-Dz1WMgUXPSM/VUpYrBNDcNI/AAAAAAAACdY/R9JLNYs8fHo/s1600/flame_lancer_entity_000_hit.gif
-    // https://media1.tenor.com/images/0076d86c8cbc6c097fcd65f1781bf4a6/tenor.gif?itemid=11262315
 
     return(
         <div style={styles}>

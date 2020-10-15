@@ -37,7 +37,7 @@ function SpriteCard(props) {
                     </Typography>
                 </CardContent>
             </CardActionArea>
-                <Button size="small" color="primary">
+                <Button onClick={()=> props.handleSelect(props)} size="small" color="primary">
                     Select Character
                 </Button>
         </Card>

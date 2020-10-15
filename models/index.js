@@ -1,3 +1,4 @@
 module.exports = {
-    Sprites: require("./sprites")
+    Sprites: require("./sprites"),
+    Battle: require("./battle")
 };

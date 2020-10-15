@@ -14,11 +14,22 @@ const spriteSchema = new Schema({
     },
     health: {
         type: Number,
-        default: 500
+        default: 100
     },
-    moves: {
-        type: [{Object}],
-    }
+    // moves: {
+    //     type: [{Object}],
+    // },
+    isFighting: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
+    moves: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Battle"
+        }
+    ]
 })
 
 const Sprites = mongoose.model("Sprites", spriteSchema);
