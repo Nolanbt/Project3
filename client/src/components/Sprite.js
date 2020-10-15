@@ -33,12 +33,12 @@ function Sprite(props) {
                 </Grid>
                 <Grid item>
                     <ButtonGroup variant="text" color="primary" aria-label="contained primary button group">
-                        <Button onClick={()=> props.handleMove("https://media0.giphy.com/media/eNAsjO55tPbgaor7ma/giphy.gif")} >React</Button>
-                        <Button onClick={()=> props.handleMove("https://media4.giphy.com/media/LUSWuXomJUaXpsFoQK/source.gif")}>Mongo</Button>
+                        <Button onClick={()=> props.handleMove(props.movesList[0].move, props.movesList[0].power)} >React</Button>
+                        <Button onClick={()=> props.handleMove(props.movesList[1].move, props.movesList[1].power)}>Mongo</Button>
                     </ButtonGroup>
                     <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
-                        <Button onClick={()=> props.handleMove("https://images.squarespace-cdn.com/content/v1/56e76a1101dbaef110916eb0/1544468004598-E847BRBNXHJXLY67OI5E/ke17ZwdGBToddI8pDm48kHgGgK_DdG2qa3eqol_lUsRZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpzrTYq94zMtEEwt_jNlk5uS8P-LPd3CcrODytEU6YMy97EpPkXqxtlnib67YzsH4Yk/Fire+Ball.gif")}>jQuery</Button>
-                        <Button onClick={()=> props.handleMove("https://community.cisco.com/t5/image/serverpage/image-id/76276iD6492463E5E8D6F7/image-size/medium?v=1.0&px=400")}>API</Button>
+                        <Button onClick={()=> props.handleMove(props.movesList[2].move ,props.movesList[2].power)}>jQuery</Button>
+                        <Button onClick={()=> props.handleMove(props.movesList[3].move, props.movesList[3].power)}>API</Button>
                     </ButtonGroup>
                 </Grid>
             </Grid>
