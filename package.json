@@ -29,9 +29,11 @@
     "axios": "^0.20.0",
     "babel-loader": "^8.1.0",
     "express": "^4.16.3",
+    "gsap": "^3.5.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.10.8",
     "pokemon-font": "^1.8.1",
+    "react-gsap": "^2.2.1",
     "react-router-dom": "^5.2.0"
   },
   "babel": {

@@ -7,6 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import SpriteCard from "../components/SpriteCard";
 import API from "../utils/API";
 
+
 const useStyles = makeStyles({
     root: {
         background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',

@@ -167,9 +167,6 @@ function Arena () {
                     <Move move={otherMove}/>
                 </Grid>
             </Grid>
-            <Link to="/selection" style={{textDecoration: 'none'}}>
-                    <Button>Back to Character Selection</Button>
-            </Link>
         </div>
     )
 }

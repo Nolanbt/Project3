@@ -5,6 +5,7 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom"
+import { Reveal, Tween } from 'react-gsap';
 
 const useStyles = makeStyles({
     root: {
@@ -36,6 +37,7 @@ function Login(props) {
 
     return (
         <Grid container spacing={2} alignItems="center" justify="center" direction="column">
+
             <Grid item>
                 <form noValidate autoComplete="off">
                     <TextField id="outlined-basic" label="Username" variant="outlined" />
@@ -46,16 +48,19 @@ function Login(props) {
                     <TextField id="outlined-basic" label="Password" variant="outlined" type="password" />
                 </form>
             </Grid>
-            <Grid item>
-                <Button onClick={() => props.loginWithRedirect()} className={classes.root} style={{ marginLeft: 5 }}>Login or Create Account</Button>
-            </Grid>
-            <Grid item>
-                <Link to="/selection" style={{ textDecoration: "none" }}>
-                    <Button className={classes.other}>Continue as Guest</Button>
-                </Link>
-            </Grid>
+            <Reveal>
+                <Tween from={{ x: '200px' }} stagger={0.2} ease="elastic.out(0.2, 0.1)">
+                    <Grid item>
+                        <Button onClick={() => props.loginWithRedirect()} className={classes.root} style={{ marginLeft: 5 }}>Login or Create Account</Button>
+                    </Grid>
+                    <Grid item>
+                        <Link to="/selection" style={{ textDecoration: "none" }}>
+                            <Button className={classes.other}>Continue as Guest</Button>
+                        </Link>
+                    </Grid>
+                </Tween>
+            </Reveal>
         </Grid>
-
     )
 }
 

@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Reveal, Tween } from 'react-gsap';
 
 const useStyles = makeStyles({
     root: {
@@ -22,25 +23,29 @@ function SpriteCard(props) {
     const classes = useStyles();
 
     return (
-        <Card className={classes.root}>
-            <CardActionArea>
-                <CardMedia className={classes.image}
-                    component="img"
-                    alt="Sprite Thumbnail"
-                    height="75"
-                    image={props.image}
-                    title="Contemplative Reptile"
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="h6">
-                        {props.name}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-                <Button onClick={()=> props.handleSelect(props)} size="small" color="primary">
-                    Select Character
+        <Reveal repeat trigger={<div />}>
+            <Tween from={{ x: '200px', rotation: 180 }} duration={2} ease="back.out(1.7)">
+                <Card className={classes.root}>
+                    <CardActionArea>
+                        <CardMedia className={classes.image}
+                            component="img"
+                            alt="Sprite Thumbnail"
+                            height="75"
+                            image={props.image}
+                            title="Contemplative Reptile"
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h6">
+                                {props.name}
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <Button onClick={() => props.handleSelect(props)} size="small" color="primary">
+                        Select Character
                 </Button>
-        </Card>
+                </Card>
+            </Tween>
+        </Reveal>
     );
 }
 
