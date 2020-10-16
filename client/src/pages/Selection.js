@@ -63,7 +63,6 @@ function Selection() {
         else{
             API.getSprites()
             .then(({data})=> {
-            console.log(data)
             setSprites(data.map(obj => ({
                 name: obj.name,
                 image: obj.image,
@@ -75,7 +74,6 @@ function Selection() {
     },[])
 
     const handleSelect = (sprite) => {
-        console.log(sprite)
         let selectedSprite = {
             id: sprite.id,
             name: sprite.name,
